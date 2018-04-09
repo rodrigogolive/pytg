@@ -3,6 +3,13 @@ __author__ = 'luckydonald'
 
 import atexit
 import logging
+try:
+    from logging import NullHandler
+except ImportError:
+    class NullHandler(logging.Handler):
+        def emit(self, record):
+            pass
+
 from time import sleep
 import os
 
@@ -10,7 +17,7 @@ from .exceptions import NoResponse, IllegalResponseException
 from luckydonaldUtils.encoding import to_unicode as u
 
 logger = logging.getLogger(__name__)
-logger.addHandler(logging.NullHandler())
+logger.addHandler(NullHandler())
 
 __all__ = ["receiver", "sender", "Telegram"]
 VERSION = "0.4.10"
