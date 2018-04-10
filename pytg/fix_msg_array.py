@@ -88,5 +88,5 @@ def fix_peer(peer):
             elif "print_name" in peer and peer["print_name"]:
                 peer["name"] = peer["username"]  # there are no other choices.
     else:
-        logger.error("Unknown peer type: {type}".format(type={peer["type"]}))
+        logger.error("Unknown peer type: {type}".format(type=peer["type"]))
     return peer
