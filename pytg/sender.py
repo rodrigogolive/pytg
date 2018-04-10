@@ -7,7 +7,12 @@ import inspect    # resultparser exceptions
 import logging    # well, logging. Duh.
 import threading  # so we don't miss messages.
 from time import sleep  # waiting on reconnect
-from collections import OrderedDict  # keep the the functions dict in order
+
+try:
+    from collections import OrderedDict
+except ImportError:
+    from ordereddict import OrderedDict  # pip install ordereddict
+
 from errno import ECONNREFUSED, EINTR  # socket errors
 from socket import error as socket_error  # socket errors
 
