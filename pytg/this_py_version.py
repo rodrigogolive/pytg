@@ -20,7 +20,8 @@ if not is3:  # py2
 
 
     def get_dict_items(dict):
-        return dict.viewitems()
+        # TODO will work on 2.7?
+        return dict.items()
 
 else:  # py3
     def set_docstring(func, doctring):
